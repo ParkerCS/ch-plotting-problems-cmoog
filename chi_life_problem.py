@@ -79,10 +79,9 @@ plt.title("2010 Life Expectancy by Community")
 ax.annotate('minimum', xy=(15, 68), xytext=(100, 1.5))
 
 #9  Add text to indicate the minimum and maximum values
-plt.text(-.5, 72, "68.8 yrs", rotation=90)
-plt.text(7.5, 85, "Maximum Value: 85.2 yrs")
+plt.text(-.5, 72, str(min(life_expectancy_2010_list)) + " yrs", rotation=90)
+plt.text(73, 85.2, str(max(life_expectancy_2010_list)) + " yrs")
 
-plt.arrow(7.5,85,17.1,-15)
 #plt.text()
 
 #10 Customize your graph in at least two other ways using documentation from matplotlib.org
