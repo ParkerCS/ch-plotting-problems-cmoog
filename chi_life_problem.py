@@ -79,7 +79,7 @@ plt.title("2010 Life Expectancy by Community")
 ax.annotate('minimum', xy=(15, 68), xytext=(100, 1.5))
 
 #9  Add text to indicate the minimum and maximum values
-plt.text(24.6, 79, "Minimum Value: 68.8 yrs", rotation=90)
+plt.text(-.5, 72, "68.8 yrs", rotation=90)
 plt.text(7.5, 85, "Maximum Value: 85.2 yrs")
 
 plt.arrow(7.5,85,17.1,-15)
