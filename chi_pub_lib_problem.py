@@ -12,10 +12,11 @@ import csv
 from operator import itemgetter
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.patches
 
 file = open("chilib_visitors_2016")
 reader = csv.reader(file, delimiter='\t')
-plt.figure(figsize=(10,7))
+plt.figure(figsize=(10,6.5))
 lib_data = []
 locations = []
 for line in reader:
@@ -60,13 +61,15 @@ top_three = [top_three[0][0], top_three[1][0], top_three[2][0]]
 top_three_index = top_three
 top_three = [lib_data[top_three[0]], lib_data[top_three[1]], lib_data[top_three[2]]]
 
-
 ax = plt.gca()
 plt.xticks(np.arange(len(month_totals)), headers, rotation=20)
 
-total_line = plt.plot(month_totals, label="total")
+total_line = plt.plot(month_totals)
 
-top_three_line1 = plt.plot(top_three[0][:12], label="line1")
+top_three_index = [locations[top_three_index[0]], locations[top_three_index[1]], locations[top_three_index[2]]]
+print(top_three_index)
+
+top_three_line1 = plt.plot(top_three[0][:12])
 top_three_line2 = plt.plot(top_three[1][:12])
 top_three_line3 = plt.plot(top_three[2][:12])
 
