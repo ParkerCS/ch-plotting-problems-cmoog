@@ -74,7 +74,7 @@ plt.xlabel("Months of 2016")
 plt.ylabel("Monthly Visitors")
 plt.title("Chicago Public Library Visitors by Month")
 
-plt.legend([total_line, top_three_line1])
+plt.legend([total_line, top_three_line1])  '''FIX THIS'''
 
 plt.ylim([0, 870000])
 plt.show()
