@@ -17,14 +17,17 @@ file = open("chilib_visitors_2016")
 reader = csv.reader(file, delimiter='\t')
 plt.figure(figsize=(10,7))
 lib_data = []
+locations = []
 for line in reader:
     lib_data.append(line)
 
 headers = lib_data[0][1:]
 lib_data = lib_data[1:]
+for t in range(len(lib_data)):
+    locations.append(lib_data[t][0])
+
 for j in range(len(lib_data)):
     lib_data[j].remove(lib_data[j][0])
-
 
 month_totals = []
 for month in range(len(lib_data[0])):
@@ -54,21 +57,24 @@ for l in range(len(lib_data)):  #locaiton
         top_three.append([l, total])
 
 top_three = [top_three[0][0], top_three[1][0], top_three[2][0]]
+top_three_index = top_three
 top_three = [lib_data[top_three[0]], lib_data[top_three[1]], lib_data[top_three[2]]]
 
 
-
+ax = plt.gca()
 plt.xticks(np.arange(len(month_totals)), headers, rotation=20)
-plt.plot(month_totals)
 
-plt.plot(top_three[0][:12])
-plt.plot(top_three[1][:12])
-plt.plot(top_three[2][:12])
+total_line = plt.plot(month_totals, label="total")
+
+top_three_line1 = plt.plot(top_three[0][:12], label="line1")
+top_three_line2 = plt.plot(top_three[1][:12])
+top_three_line3 = plt.plot(top_three[2][:12])
 
 plt.xlabel("Months of 2016")
 plt.ylabel("Monthly Visitors")
 plt.title("Chicago Public Library Visitors by Month")
 
+plt.legend([total_line, top_three_line1])
 
 plt.ylim([0, 870000])
 plt.show()
